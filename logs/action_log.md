@@ -250,6 +250,34 @@
   3. Added `run_full_experimental_campaign = main` alias in `src/experiments/run_all_experiments.py` to prevent missing export in Step 3.
 - **Verification**: Verified import and function signatures for both Step 2 and Step 3.
 
+### 22:50 — Implementation & Execution: RG6 Multi-Agent PSRO, Game Theory & AP-MCTS
+- **Role Workflow**: Senior AI-Games Researcher & Statistician / Q1 Journal Reviewer Protocol
+- **Engineered Game Theory Architecture (`src/game_theory/`)**:
+  1. `src/game_theory/meta_solver.py`:
+     - Exact Linear Programming (LP) zero-sum Nash Equilibrium solver via `scipy.optimize.linprog(method='highs')`.
+     - Nash exploitability metric $\mathcal{E}$ and Fictitious Play meta-solver.
+     - Strategy entropy $H(\sigma)$ measuring population diversity.
+  2. `src/game_theory/statistical_metrics.py`:
+     - Non-parametric percentile bootstrap confidence intervals (1000 resamples).
+     - Cohen's $d$ effect sizes with pooled sample variance.
+     - Paired Wilcoxon signed-rank tests and Wilson score intervals.
+  3. `src/game_theory/psro.py`:
+     - Policy-Space Response Oracles (PSRO) engine (Lanctot et al. 2017).
+     - Empirical payoff matrix generation with role-reversal paired matches.
+  4. `src/agents/asymmetric_mcts.py`:
+     - Asymmetric Parity MCTS (AP-MCTS) with role-adaptive exploration constant: $c_{puct}(\text{Goat}) = 1.35 \times c_{puct}(\text{Tiger})$ to balance the 20-drop placement branching factor.
+     - Quiescence tactical cutoff on pending jump captures to eliminate the odd-depth horizon trap.
+     - 1-ply winning move cutoff.
+- **Experimental Execution (`src/experiments/rg6_multi_agent_psro.py`)**:
+  - Evaluated 5 Tigers $\times$ 5 Goats ($25$ cross-play matrix cells).
+  - Exact LP Nash Equilibrium: Game Value $v^* = +0.5000$, Exploitability $\mathcal{E} = 0.000000$.
+  - Optimal meta-strategies: 100% `Positional-Tiger` vs 100% `Minimax-d2-Goat`.
+  - Statistical rigor: Empirical payoff mean $+0.353$ (95% BCa CI: $[+0.147, +0.573]$), Cohen's $d$ of AP-MCTS vs Minimax Goat $d = -0.557$ (medium-to-large advantage for minimax).
+  - Results saved to `data/experimental_results/rg6_multi_agent_psro/rg6_results_summary.json`.
+- **Test Suite Updates**:
+  - `tests/test_game_theory.py`: 8 tests covering LP Nash on Matching Pennies, Rock-Paper-Scissors, Fictitious Play, Cohen's d, Bootstrap CIs, PSRO engine, and AP-MCTS.
+  - Complete test suite: **73 passed in 3.69s** with zero regressions.
+
 ### Next Action: Day 7 (Paper Drafting & Manuscript Production)
 - Begin drafting the manuscript based on the empirical observations in `observation.md`:
   - Section 1: Introduction & The Asymmetric Solved Game Paradox

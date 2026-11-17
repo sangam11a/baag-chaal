@@ -1,0 +1,40 @@
+{
+  "single": {
+    "train_losses": [
+      0.012713192977632086,
+      -0.017989895062055436
+    ],
+    "tbi": [
+      0.75,
+      1.0
+    ],
+    "rbi": [
+      0.11764705882352944,
+      0.0
+    ]
+  },
+  "dual": {
+    "train_losses": [
+      0.0037651392785545447,
+      -0.005441107559535239
+    ],
+    "tbi": [
+      1.0,
+      0.8999999999999999
+    ],
+    "rbi": [
+      0.0,
+      0.052631578947368474
+    ]
+  },
+  "head_to_head": {
+    "single_as_tiger_wins": 0,
+    "dual_as_tiger_wins": 0,
+    "draws": 0,
+    "total_games": 30,
+    "single_wins": 15,
+    "dual_wins": 15,
+    "dual_win_rate": 0.5,
+    "single_win_rate": 0.5
+  }
+}

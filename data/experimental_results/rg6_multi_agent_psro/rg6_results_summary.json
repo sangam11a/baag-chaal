@@ -1,0 +1,86 @@
+{
+  "payoff_matrix": [
+    [
+      1.0,
+      0.16666666666666666,
+      -0.3333333333333333,
+      0.16666666666666666,
+      0.16666666666666666
+    ],
+    [
+      1.0,
+      0.6666666666666666,
+      1.0,
+      0.5,
+      0.3333333333333333
+    ],
+    [
+      1.0,
+      1.0,
+      1.0,
+      0.5,
+      0.8333333333333334
+    ],
+    [
+      0.16666666666666666,
+      0.16666666666666666,
+      0.0,
+      0.0,
+      -0.3333333333333333
+    ],
+    [
+      0.16666666666666666,
+      -0.8333333333333334,
+      0.0,
+      -0.5,
+      1.0
+    ]
+  ],
+  "tiger_names": [
+    "Random-Tiger",
+    "Greedy-Tiger",
+    "Positional-Tiger",
+    "Minimax-d2-Tiger",
+    "AP-MCTS-Tiger"
+  ],
+  "goat_names": [
+    "Random-Goat",
+    "Defensive-Goat",
+    "Blocker-Goat",
+    "Minimax-d2-Goat",
+    "AP-MCTS-Goat"
+  ],
+  "nash_equilibrium": {
+    "game_value": 0.49999999999999956,
+    "exploitability": 0.0,
+    "tiger_meta_strategy": {
+      "Random-Tiger": 0.0,
+      "Greedy-Tiger": 0.0,
+      "Positional-Tiger": 1.0,
+      "Minimax-d2-Tiger": 0.0,
+      "AP-MCTS-Tiger": 0.0
+    },
+    "goat_meta_strategy": {
+      "Random-Goat": 0.0,
+      "Defensive-Goat": 0.0,
+      "Blocker-Goat": 0.0,
+      "Minimax-d2-Goat": 1.0,
+      "AP-MCTS-Goat": 0.0
+    },
+    "tiger_entropy": -0.0,
+    "goat_entropy": -0.0
+  },
+  "fictitious_play": {
+    "final_game_value": 0.5110111111111111,
+    "final_exploitability": 0.006111111111111067
+  },
+  "statistical_metrics": {
+    "bootstrap_mean_payoff": 0.35333333333333333,
+    "bootstrap_95_ci": [
+      0.14666666666666667,
+      0.5733333333333333
+    ],
+    "cohens_d_tiger_ap_mcts_vs_minimax": -0.0645497224367903,
+    "cohens_d_goat_ap_mcts_vs_minimax": -0.5570484990582332
+  }
+}
