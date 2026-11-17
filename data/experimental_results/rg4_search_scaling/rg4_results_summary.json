@@ -1,0 +1,117 @@
+{
+  "depth_grid": {
+    "T_d1_vs_G_d1": {
+      "d_tiger": 1,
+      "d_goat": 1,
+      "tiger_win_rate": 1.0,
+      "goat_win_rate": 0.0,
+      "draw_rate": 0.0,
+      "avg_plies": 24.0,
+      "avg_tiger_time_ms": 1.15160277669525,
+      "avg_goat_time_ms": 1.3452833340529144
+    },
+    "T_d1_vs_G_d2": {
+      "d_tiger": 1,
+      "d_goat": 2,
+      "tiger_win_rate": 0.0,
+      "goat_win_rate": 0.0,
+      "draw_rate": 1.0,
+      "avg_plies": 63.0,
+      "avg_tiger_time_ms": 0.6622333324924913,
+      "avg_goat_time_ms": 4.828274999454152
+    },
+    "T_d1_vs_G_d3": {
+      "d_tiger": 1,
+      "d_goat": 3,
+      "tiger_win_rate": 1.0,
+      "goat_win_rate": 0.0,
+      "draw_rate": 0.0,
+      "avg_plies": 20.0,
+      "avg_tiger_time_ms": 1.1884666678573315,
+      "avg_goat_time_ms": 33.332603331655264
+    },
+    "T_d2_vs_G_d1": {
+      "d_tiger": 2,
+      "d_goat": 1,
+      "tiger_win_rate": 1.0,
+      "goat_win_rate": 0.0,
+      "draw_rate": 0.0,
+      "avg_plies": 24.0,
+      "avg_tiger_time_ms": 6.114627777909239,
+      "avg_goat_time_ms": 1.2341833341148838
+    },
+    "T_d2_vs_G_d2": {
+      "d_tiger": 2,
+      "d_goat": 2,
+      "tiger_win_rate": 0.0,
+      "goat_win_rate": 0.0,
+      "draw_rate": 1.0,
+      "avg_plies": 53.0,
+      "avg_tiger_time_ms": 4.42322948649048,
+      "avg_goat_time_ms": 4.9173135795834595
+    },
+    "T_d2_vs_G_d3": {
+      "d_tiger": 2,
+      "d_goat": 3,
+      "tiger_win_rate": 1.0,
+      "goat_win_rate": 0.0,
+      "draw_rate": 0.0,
+      "avg_plies": 20.0,
+      "avg_tiger_time_ms": 5.529930000193417,
+      "avg_goat_time_ms": 33.095773333237354
+    },
+    "T_d3_vs_G_d1": {
+      "d_tiger": 3,
+      "d_goat": 1,
+      "tiger_win_rate": 1.0,
+      "goat_win_rate": 0.0,
+      "draw_rate": 0.0,
+      "avg_plies": 18.0,
+      "avg_tiger_time_ms": 30.8922296287535,
+      "avg_goat_time_ms": 1.3499666663981904
+    },
+    "T_d3_vs_G_d2": {
+      "d_tiger": 3,
+      "d_goat": 2,
+      "tiger_win_rate": 0.0,
+      "goat_win_rate": 0.0,
+      "draw_rate": 1.0,
+      "avg_plies": 64.0,
+      "avg_tiger_time_ms": 24.581459375440318,
+      "avg_goat_time_ms": 5.59843229211765
+    },
+    "T_d3_vs_G_d3": {
+      "d_tiger": 3,
+      "d_goat": 3,
+      "tiger_win_rate": 1.0,
+      "goat_win_rate": 0.0,
+      "draw_rate": 0.0,
+      "avg_plies": 18.0,
+      "avg_tiger_time_ms": 32.90416296308481,
+      "avg_goat_time_ms": 34.23760370222024
+    }
+  },
+  "mcts_vs_minimax": {
+    "sims_25": {
+      "simulations": 25,
+      "mcts_as_tiger_wr": 0.3333333333333333,
+      "mcts_as_tiger_draw": 0.0,
+      "mcts_as_goat_wr": 0.0,
+      "mcts_as_goat_draw": 0.0
+    },
+    "sims_50": {
+      "simulations": 50,
+      "mcts_as_tiger_wr": 0.0,
+      "mcts_as_tiger_draw": 0.6666666666666666,
+      "mcts_as_goat_wr": 0.0,
+      "mcts_as_goat_draw": 0.0
+    },
+    "sims_100": {
+      "simulations": 100,
+      "mcts_as_tiger_wr": 0.3333333333333333,
+      "mcts_as_tiger_draw": 0.0,
+      "mcts_as_goat_wr": 0.0,
+      "mcts_as_goat_draw": 0.0
+    }
+  }
+}

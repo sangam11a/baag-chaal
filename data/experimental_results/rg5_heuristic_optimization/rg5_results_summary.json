@@ -1,0 +1,63 @@
+{
+  "handcrafted_default_weights": [
+    2500.0,
+    40.0,
+    1500.0,
+    15.0,
+    5.0
+  ],
+  "handcrafted_fitness": 0.75,
+  "best_evolved_weights": [
+    2500.0,
+    40.0,
+    1500.0,
+    15.0,
+    5.0
+  ],
+  "best_evolved_fitness": 0.75,
+  "generation_history": [
+    {
+      "generation": 0,
+      "best_fitness": 0.75,
+      "mean_fitness": 0.7395833333333334,
+      "best_weights": [
+        2500.0,
+        40.0,
+        1500.0,
+        15.0,
+        5.0
+      ]
+    },
+    {
+      "generation": 1,
+      "best_fitness": 0.75,
+      "mean_fitness": 0.75,
+      "best_weights": [
+        4271.82219437303,
+        61.88836369929361,
+        1515.5636621654814,
+        10.998288745765086,
+        9.679098041550859
+      ]
+    },
+    {
+      "generation": 2,
+      "best_fitness": 0.75,
+      "mean_fitness": 0.75,
+      "best_weights": [
+        2232.035126546293,
+        59.77005568117302,
+        858.1332009663519,
+        13.375473672196193,
+        6.051368427393965
+      ]
+    }
+  ],
+  "validation_head_to_head": {
+    "total_games": 20,
+    "evolved_wins": 0,
+    "default_wins": 0,
+    "draws": 20,
+    "evolved_win_rate": 0.0
+  }
+}
