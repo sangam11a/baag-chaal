@@ -11,12 +11,13 @@ without encirclement defense), whereas PBRS stabilizes goat survival and acceler
 equilibration without distorting the optimal policy.
 """
 
+from __future__ import annotations
 import os
 import json
 import numpy as np
 import torch
 import torch.nn.functional as F
-from typing import Dict, List, Tuple
+from typing import Dict, List, Tuple, Any
 
 from src.environment.board import NUM_POINTS, EMPTY, TIGER, GOAT, ADJACENCY_LIST, JUMPS_BY_SOURCE
 from src.environment.state import BaghChalState, Action, TOTAL_ACTIONS, CANONICAL_ACTIONS

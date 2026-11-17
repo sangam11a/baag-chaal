@@ -8,7 +8,8 @@ Enforces game rules:
 - Draw conditions: 3-fold repetition, 100 plies without capture (movement phase)
 """
 
-from typing import List, Optional, Dict
+from __future__ import annotations
+from typing import List, Optional, Dict, Tuple
 from src.environment.board import (
     NUM_POINTS,
     EMPTY,

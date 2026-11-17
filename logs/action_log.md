@@ -177,6 +177,17 @@
   - File: `observation.md` (`e:\CQU\baag-chaal\observation.md`).
   - Contains executive overview of the Bagh-Chal paradox, formal mathematical problem definitions, hypotheses, full empirical tables for RG1–RG5, synthesis of the 80-game baseline tournament, critical review of prior literature (Lim & Nievergelt 2009, Raut et al. 2026, Thapa & Poudel 2024, Malla 2026), roadmap and word-budget blueprint for a Springer Nature Q1 submission, and pre-submission reproducibility checklist.
 
+### 21:55 — Kaggle Compatibility & Typing Audit: Python 3.10/3.11 NameError Fix
+- **Issue**: Running pytest in Kaggle environment (Python 3.10/3.11) threw `NameError: name 'Tuple' is not defined` during collection at `src/environment/rules.py:112`.
+- **Root Cause**: Python 3.10/3.11 eagerly evaluates type annotations on class methods during import unless `from __future__ import annotations` is present. Line 11 in `rules.py` imported `List, Optional, Dict` but omitted `Tuple`.
+- **Codebase-Wide Audit**:
+  - Wrote AST inspection script scanning all 34 files across `src/` and `tests/`.
+  - Found and fixed:
+    1. `src/environment/rules.py`: Added `Tuple` to typing imports and `from __future__ import annotations`.
+    2. `src/experiments/rg1_credit_assignment.py`: Added `Any` to typing imports and `from __future__ import annotations`.
+  - Verified 100% clean across all modules: zero missing typing imports.
+- **Verification**: `python -m pytest tests/ -q`: **65 passed in 6.79s**.
+
 ### Next Action: Day 7 (Paper Drafting & Manuscript Production)
 - Begin drafting the manuscript based on the empirical observations in `observation.md`:
   - Section 1: Introduction & The Asymmetric Solved Game Paradox
