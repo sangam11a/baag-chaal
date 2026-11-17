@@ -188,6 +188,68 @@
   - Verified 100% clean across all modules: zero missing typing imports.
 - **Verification**: `python -m pytest tests/ -q`: **65 passed in 6.79s**.
 
+### 22:15 — Implementation & Validation: Full Training Suite for Kaggle GPU
+- **Role Workflow**: Two-Agent Adversarial Protocol (Senior AI Games Researcher & Q1 Journal Reviewer)
+- **Engineered Components**:
+  1. `src/training/evaluator.py`:
+     - Standardized periodic benchmark evaluation against `PositionalTiger`, `GreedyTiger`, `DefensiveGoat`, `BlockerGoat`, and `Minimax-d2`.
+     - Added Wilson score 95% confidence intervals for win rates and competitive score ($CS$).
+  2. `src/training/plotting.py`:
+     - Engineered publication-grade plotting system strictly formatted for Springer Nature Q1 manuscripts (300 DPI, vector PDF & PNG).
+     - Generates 4-panel training dynamics dashboard: (a) Policy & Value Loss, (b) Win/Draw dynamics, (c) Asymmetry metrics ($TBI$ & $RBI$), (d) Generalization vs benchmark pool.
+     - Generates 3-panel comparative ablation bar charts for cross-architecture evaluation.
+  3. `train_kaggle.py`:
+     - Master CLI runner with zero external dataframe dependencies (pure standard-library `csv` + PyTorch + NumPy + Matplotlib).
+     - Full support for multi-representation (`gnn`, `cnn`, `flat`), multi-architecture (`dual`, `single`), and reward schemes (`pbrs`, `sparse`, `dense`).
+     - Automatic artifact packaging into `kaggle_training_artifacts.zip`.
+  4. `kaggle_training_notebook.ipynb`:
+     - Turnkey 15-cell interactive Jupyter Notebook ready to upload and execute on Kaggle GPU.
+- **Empirical Smoke Test Validations**:
+  - `flat_single_pbrs`: 30 episodes + live benchmark evaluation completed in 8.31s.
+  - `gnn_dual_pbrs`: 30 episodes + live benchmark evaluation completed in 9.76s (Competitive score 0.150, 300 DPI PNG & PDF plots generated).
+- **Test Suite Verification**:
+  - `python -m pytest tests/ -q`: **65 passed in 5.65s** with zero regressions.
+
+### 22:30 — Bug Fix: Tournament & Campaign Signature Alignment
+- **Issue**: `run_kaggle.py` failed at Step 2 with `TypeError: run_benchmark() got an unexpected keyword argument 'num_seeds'`.
+- **Root Cause**: `src/evaluation/run_benchmark.py` defined parameter `rounds_per_matchup`, while `run_kaggle.py` passed `num_seeds`.
+- **Fixes Applied**:
+  1. Updated `src/evaluation/run_benchmark.py` to accept `rounds_per_matchup`, `base_seed`, and `**kwargs` with backward-compatible mapping for `num_seeds`.
+  2. Updated `run_kaggle.py` line 84 to call `run_benchmark(rounds_per_matchup=5, base_seed=1000)`.
+  3. Added `run_full_experimental_campaign = main` alias in `src/experiments/run_all_experiments.py` to prevent missing export in Step 3.
+- **Verification**: Verified import and function signatures for both Step 2 and Step 3.
+
+### 22:15 — Implementation & Validation: Full Training Suite for Kaggle GPU
+- **Role Workflow**: Two-Agent Adversarial Protocol (Senior AI Games Researcher & Q1 Journal Reviewer)
+- **Engineered Components**:
+  1. `src/training/evaluator.py`:
+     - Standardized periodic benchmark evaluation against `PositionalTiger`, `GreedyTiger`, `DefensiveGoat`, `BlockerGoat`, and `Minimax-d2`.
+     - Added Wilson score 95% confidence intervals for win rates and competitive score ($CS$).
+  2. `src/training/plotting.py`:
+     - Engineered publication-grade plotting system strictly formatted for Springer Nature Q1 manuscripts (300 DPI, vector PDF & PNG).
+     - Generates 4-panel training dynamics dashboard: (a) Policy & Value Loss, (b) Win/Draw dynamics, (c) Asymmetry metrics ($TBI$ & $RBI$), (d) Generalization vs benchmark pool.
+     - Generates 3-panel comparative ablation bar charts for cross-architecture evaluation.
+  3. `train_kaggle.py`:
+     - Master CLI runner with zero external dataframe dependencies (pure standard-library `csv` + PyTorch + NumPy + Matplotlib).
+     - Full support for multi-representation (`gnn`, `cnn`, `flat`), multi-architecture (`dual`, `single`), and reward schemes (`pbrs`, `sparse`, `dense`).
+     - Automatic artifact packaging into `kaggle_training_artifacts.zip`.
+  4. `kaggle_training_notebook.ipynb`:
+     - Turnkey 15-cell interactive Jupyter Notebook ready to upload and execute on Kaggle GPU.
+- **Empirical Smoke Test Validations**:
+  - `flat_single_pbrs`: 30 episodes + live benchmark evaluation completed in 8.31s.
+  - `gnn_dual_pbrs`: 30 episodes + live benchmark evaluation completed in 9.76s (Competitive score 0.150, 300 DPI PNG & PDF plots generated).
+- **Test Suite Verification**:
+  - `python -m pytest tests/ -q`: **65 passed in 5.65s** with zero regressions.
+
+### 22:30 — Bug Fix: Tournament & Campaign Signature Alignment
+- **Issue**: `run_kaggle.py` failed at Step 2 with `TypeError: run_benchmark() got an unexpected keyword argument 'num_seeds'`.
+- **Root Cause**: `src/evaluation/run_benchmark.py` defined parameter `rounds_per_matchup`, while `run_kaggle.py` passed `num_seeds`.
+- **Fixes Applied**:
+  1. Updated `src/evaluation/run_benchmark.py` to accept `rounds_per_matchup`, `base_seed`, and `**kwargs` with backward-compatible mapping for `num_seeds`.
+  2. Updated `run_kaggle.py` line 84 to call `run_benchmark(rounds_per_matchup=5, base_seed=1000)`.
+  3. Added `run_full_experimental_campaign = main` alias in `src/experiments/run_all_experiments.py` to prevent missing export in Step 3.
+- **Verification**: Verified import and function signatures for both Step 2 and Step 3.
+
 ### Next Action: Day 7 (Paper Drafting & Manuscript Production)
 - Begin drafting the manuscript based on the empirical observations in `observation.md`:
   - Section 1: Introduction & The Asymmetric Solved Game Paradox

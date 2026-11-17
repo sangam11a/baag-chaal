@@ -16,7 +16,17 @@ from src.evaluation.tournament import play_game
 from src.evaluation.logger import GameLogger
 
 
-def run_benchmark(rounds_per_matchup: int = 10, log_dir: str = "data/benchmark_results"):
+def run_benchmark(
+    rounds_per_matchup: int = 5,
+    log_dir: str = "data/benchmark_results",
+    base_seed: int = 1000,
+    **kwargs
+):
+    if "num_seeds" in kwargs:
+        rounds_per_matchup = kwargs["num_seeds"]
+    if "base_seed" in kwargs:
+        base_seed = kwargs["base_seed"]
+
     print(f"=== Starting Bagh-Chal Benchmark Tournament ({rounds_per_matchup} rounds/matchup) ===")
     logger = GameLogger(log_dir)
 
@@ -44,7 +54,7 @@ def run_benchmark(rounds_per_matchup: int = 10, log_dir: str = "data/benchmark_r
         for goat in goat_agents:
             print(f"\n--- Matchup: {tiger.name} vs {goat.name} ---")
             for r in range(rounds_per_matchup):
-                seed = 1000 + r
+                seed = base_seed + r
                 tiger.rng = None if not hasattr(tiger, "rng") or tiger.rng is None else tiger.rng
                 rec = play_game(tiger_agent=tiger, goat_agent=goat, seed=seed)
                 logger.log_game(rec)

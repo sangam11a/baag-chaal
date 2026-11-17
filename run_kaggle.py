@@ -81,7 +81,7 @@ def run_tournament():
     print("[Step 2/3] Executing 80-Game Baseline Tournament...")
     t0 = time.time()
     from src.evaluation.run_benchmark import run_benchmark
-    run_benchmark(num_seeds=5, base_seed=1000)
+    run_benchmark(rounds_per_matchup=5, base_seed=1000)
     elapsed = time.time() - t0
     print(f"[SUCCESS] Tournament completed in {elapsed:.2f}s.\n")
 

@@ -69,5 +69,9 @@ def main():
     print("=" * 70)
 
 
+def run_full_experimental_campaign():
+    return main()
+
+
 if __name__ == "__main__":
     main()
